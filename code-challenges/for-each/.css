@@ -1,0 +1,7 @@
+const greeting = (word) => {
+  return word.toUpperCase();
+};
+
+const speaker = (message, callback) => {
+  return callback(message);
+};
