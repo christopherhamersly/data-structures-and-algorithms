@@ -32,24 +32,17 @@ Within the addNumbers function, invoke the callback function as many times as ne
 Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
-// Solution code here...
-
- 
-const addValues = (arr, value);
-
-
-
-
-const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+const addValues = (arr, value) => {
+  arr.push(value);
 };
 
-describe('Testing challenge 2', () => {
-  test('It should add the number 8 to the array five times', () => {
-    expect(addNumbers(8, [], 5, addValues)).toStrictEqual([8, 8, 8, 8, 8]);
-    expect(addNumbers(8, [], 5, addValues).length).toStrictEqual(5);
-  });
-});
+const addNumbers = (num, arr, times, callback) => {
+  for(let i=0; i<times; i++){
+    callback(arr, num);
+  }
+  return arr;
+};
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -67,10 +60,20 @@ The inventory is formatted like this:
 This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
 
+
 const createList = (availableItems) => {
-  // Solution code here...
-  arr.forEach()
+  let finalList = [];
+  availableItems.forEach(item=> {
+    if(item.available===true);
+    {
+      finalList.push(item.name);
+    }
+
+    return finalList;
+  });
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -86,9 +89,47 @@ Iterate over the array using forEach to determine the output based on several ru
 Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
+
+
+// Solution code here...
+
 const fizzbuzz = (arr) => {
-  // Solution code here...
+  let outputArray = [];
+  const threeTest = num/3;
+  const fiveTest = num/5;
+  const threeandFiveTest = num/5 && num/3;
+
+  if (threeTest % 1 === 0){
+    outputArray.push('Fizz');
+  }
+  else if (fiveTest % 1 === 0){
+    outputArray.push('Buzz');
+  }
+  else if (threeandFiveTest % 1=== 0){
+    outputArray.push('Fizz Buzz');
+  }
+  else (outputArray.push(num));
 };
+
+
+
+
+
+
+
+
+//   let outputArray = [];
+//   if(isNaN(num/3)===false){
+//     outputArray.push('Fizz');
+//   }
+//   else if (isNaN(num/5)===false){
+//     outputArray.push('Buzz');
+//   }
+//   else if (isNan(num/3) && isNaN(num/5)===false){
+//     outputArray.push('Fizz Buzz');
+//   }
+//   else (outputArray.push(num));
+// };
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
