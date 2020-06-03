@@ -94,9 +94,9 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   let outputArray = [];
-  const threeTest = num/3;
-  const fiveTest = num/5;
-  const threeandFiveTest = num/5 && num/3;
+  let threeTest = arr/3;
+  let fiveTest = arr/5;
+  let threeandFiveTest = arr/5 && arr/3;
 
   if (threeTest % 1 === 0){
     outputArray.push('Fizz');
@@ -107,12 +107,16 @@ const fizzbuzz = (arr) => {
   else if (threeandFiveTest % 1=== 0){
     outputArray.push('Fizz Buzz');
   }
-  else (outputArray.push(num));
+  else (outputArray.push(arr));
 };
 
 
 
-
+test('It should print out messages or numbers', () => {
+  expect(fizzbuzz(inputs)).toStrictEqual([1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'Fizz Buzz', 16]);
+  expect(fizzbuzz(inputs).length).toStrictEqual(16);
+});
+});
 
 
 
