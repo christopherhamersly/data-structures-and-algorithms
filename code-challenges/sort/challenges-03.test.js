@@ -86,7 +86,14 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetizeBetter = (arr) => {
-  // Solution code here...
+  arr.sort(( a, b) => {
+    if(a.toLowerCase() > b.toLowerCase()){
+      return 1;
+    } else if (a.toLowerCase() < b.toLowerCase()){
+      return -1;
+    }
+  })
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -103,7 +110,10 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  // Solution code here...
+  arr.sort ((a , b) => {
+    return (a.price - b.price)
+  })
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -115,7 +125,9 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbersByLength = (arr) => {
-  // Solution code here...
+  arr.sort((a, b){
+    return a.lenght > b.length ? 1 : -1; 
+  })
 };
 
 /*-----------------------------------------------------------------------------------------------
@@ -137,7 +149,9 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  // Solution code here...
+  people.sort((a, b) => {
+    return a.name > b.name ? 1 : -1;
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -260,7 +274,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should alphabetize without regard to capitalization', () => {
     expect(alphabetizeBetter(['Alice', 'apple', 'alert', 'Average'])).toStrictEqual([ 'alert', 'Alice', 'apple', 'Average' ]);
     const ans = alphabetizeBetter(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
