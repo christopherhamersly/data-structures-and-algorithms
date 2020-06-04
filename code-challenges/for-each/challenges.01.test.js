@@ -94,18 +94,20 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   let outputArray = [];
-
-  if (fizzbuzz % 3 === 0){
+   arr.forEach( num => {
+  if (num % 3 === 0){
     outputArray.push('Fizz');
   }
-  else if (fizzbuzz % 5 === 0){
+  else if (num % 5 === 0){
     outputArray.push('Buzz');
   }
-  else if (fizzbuzz % 15=== 0){
+  else if (num % 15=== 0){
     outputArray.push('Fizz Buzz');
   }
-  else (outputArray.push(arr));
-};
+  else (outputArray.push(num));
+});
+  return outputArray;
+}
 
 
 
