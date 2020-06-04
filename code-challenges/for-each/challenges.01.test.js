@@ -94,17 +94,14 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   let outputArray = [];
-  let threeTest = arr/3;
-  let fiveTest = arr/5;
-  let threeandFiveTest = arr/5 && arr/3;
 
-  if (threeTest % 1 === 0){
+  if (fizzbuzz % 3 === 0){
     outputArray.push('Fizz');
   }
-  else if (fiveTest % 1 === 0){
+  else if (fizzbuzz % 5 === 0){
     outputArray.push('Buzz');
   }
-  else if (threeandFiveTest % 1=== 0){
+  else if (fizzbuzz % 15=== 0){
     outputArray.push('Fizz Buzz');
   }
   else (outputArray.push(arr));
