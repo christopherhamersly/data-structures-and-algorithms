@@ -42,8 +42,11 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-  // Solution code here...
+  let regex = /\d/;
+  return regex.test(input);
+
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -54,7 +57,8 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  // Solution code here...
+  let regex = /[A-Z][a-zA-Z]*/g;
+  return str.match(regex)||[];
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -64,7 +68,8 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  // Solution code here...
+  let regex = /\b[ABCDEFGHIJ]/g;
+  return arr.match(regex)||[];
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -80,7 +85,8 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  // Solution code here...
+  let regex = /[Ooctober]/
+  regex.test(input)
 };
 
 /* ------------------------------------------------------------------------------------------------
