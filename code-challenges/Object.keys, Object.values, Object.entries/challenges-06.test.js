@@ -68,14 +68,14 @@ let $ = createSnippetWithJQuery(`
 `)
 
 const templatingWithMustache = () => {
-  let templateArray =[];
+  let templateArray = [];
   characters.forEach(character => {
     let template = $('#template').html();
     let html = Mustache.render(template, {
-      'name': character.name,
-      'spouse': character.spouse,
-      'children': character.children,
-      'house': character.house
+      'name' : character.name,
+      'spouse' : character.spouse,
+      'children' : character.children,
+      'house' : character.house
     });
     templateArray.push(html);
   })
@@ -126,17 +126,18 @@ hasChildrenValues(characters, 'Sansa') will return false
 const hasChildrenValues = (arr, character) => {
   let variable;
   arr.forEach(value => {
+    // console.log(value.children);
     let checkIfParent = value.children;
     let parentName = value.name;
-    if( parentName === character && checkIfParent.length > 0){
+    if (parentName === character && checkIfParent.length > 0){
       variable = true;
-    } else if (parentName === character && checkIfParent.length === 0)
+    } else if (parentName === character && checkIfParent.length === 0){
       variable = false;
     }
   })
-    return variable;
-  };
- 
+  return variable;
+};
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
 
