@@ -30,7 +30,8 @@ const createServer = () => {
   }
 
   function favoriteFoodsHandler (request, response) {
-    response.status(200).send(['pesto', 'pesto', 'pesto', 'pesto']);
+    let foodArray = ['pesto','pesto','pesto', 'and pesto'];
+    response.status(200).send(foodArray);
   }
 
   function handleNotFound (request, response) {
@@ -51,8 +52,9 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-  let filterArray = [];
-  
+  const newArray = input.reduce((acc, value, index)=>{
+    return acc.concat(value);
+  }, [])
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,9 +67,16 @@ You may want to use filter, map, or reduce for this problem, but are not require
 For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
-const totalSum = (input) => {
 
+const totalSum = (input) => {
+  const sum = input.reduce ((accumulator, value, index) => {
+    return accumulator.concat(value);
+  }, []).reduce((accumulator, value, index)=>{
+    return accumulator + value;
+  }, 0);
+  return sum;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
