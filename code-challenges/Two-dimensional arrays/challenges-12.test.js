@@ -9,7 +9,7 @@ using the 'reduce' method.
 E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
-  
+  return arr.reduce((acc, value)=>Math.max(acc, value), 0)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,8 +35,16 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
+  let total = [];
 
+  for (let i =0; i< hoursOpen.length; i++){
+    let oneHour = 0;
+    for (let j = 0; j< stores.length; j++){
+      oneHour= oneHour + stores[j][i];
+    }
+    total.push(oneHour);
+  }
+  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -50,7 +58,11 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let store = [];
+  hours.forEach((hour, i) => {
+    store.push({sales:data[i] + 'cookies', time:hour});
+  });
+  return store;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -75,8 +87,17 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  let treats = 0;
+  arr.forEach(store=>{
+    store.items.forEach(item =>{
+      if( item.name === 'Treats'){
+        treats = item.quantity;
+      }
+    });
+  });
+  return treats;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
