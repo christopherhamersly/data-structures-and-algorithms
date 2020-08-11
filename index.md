@@ -1,0 +1,2 @@
+1. [array-reverse](https://christopherhamersly.github.io/data-structures-and-algorithims/javascript/challenges/array-reverse/array-reverse
+2. [array-shift](https://christopherhamersly.github.io/data-structures-and-algorithims/javascript/challenges/array-shift
