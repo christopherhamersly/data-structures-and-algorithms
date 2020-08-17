@@ -43,19 +43,18 @@ class LinkedList {
     // check if the value ==== currentNode.value if not there 
     // keep going
     // if we reached the end of the list return false
-    while( currentNode != null){
-      currentNode.next;
+    while(currentNode.next) {
+      currentNode = currentNode.next;
+
       //run an if conditional, if the value is not in the node, move on.  If it is return true, if it is not in the node return false
-      if (value === currentNode.value) {
-        return true;
-        // move through the next node to check if its in the value
-      } else if (currentNode.next === value) {
-        return true;
-      } else {
-        return false;
-      } 
-    } 
-  } 
+      // move through the next node to check if its in the value
+    } if (currentNode.next === value) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   //loop over the nodes and check to see if it has the value
 
 
