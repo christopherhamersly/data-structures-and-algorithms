@@ -16,3 +16,10 @@ For Include, I first needed to establish a while loop letting the alogirithim ru
 For toString I thought it would also be easy to use a while loop.  Going through the node and storing the values of the linked list in a variable called string.  As its moving through the link list it is taking the values from each node and pushing them into an empty string, and then returning the string at the end of the while loop. 
 
 ## API
+
+
+## Solution
+![Linked-list](linked-list.png)
+
+## Co-Author 
+ - Matthew Herriges

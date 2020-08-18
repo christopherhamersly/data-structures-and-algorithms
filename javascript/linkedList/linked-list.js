@@ -72,15 +72,44 @@ class LinkedList {
   //returns a string representing all the values in the Linked List, formatted as:
   //"{ a } -> { b } -> { c } -> NULL"
   }
+
+  insertBefore(value){
+
+   const newNode = new Node(newVal)
+
+   if(!this.head) {
+    this.head = newNode;
+    return;
+
+   let currentNode = this.head;
+
+   while (currentNode.value !== value) {
+    currentNode = currentNode.next;
 }
 
 
+  insertBefore(value){
+  const newNode = new Node(newVal)
+  if(!this.head) {
+  this.head = newNode;
+  return;
+  
+  let currentNode = this.head;
+  while(currentNode.next.value !== value) {
+  currentNode = currentNode.next;
+  }
 
+  currentNode = currentNode.next;
+  let temp = currentNode;
+  currentNode.next = newNode;
+  newNode.next = temp.next;
+}
+
+
+}
 
 
 module.exports = LinkedList;
 
-// linked list that is not empty 
-// {head = {value:'apples', next:null}}
-// Insert bananas; (value arg = "bananas");
+
 
