@@ -30,7 +30,7 @@ test('should append to empty list', () => {
 // Can properly insert multiple nodes into the linked list
 test('should append to NOT empty list', () => {
   ll.insert('apples');
-  ll.insert('apples');
+  ll.insert('bananas');
   ll.append('cucumbers');
 
   expect(ll.head.value).toBe('bananas');
@@ -45,33 +45,33 @@ test('should append multiple values to the end of a linked list' => {
   ll.clear();
   ll.append('cucumbers');
   ll.append('apples');
-  expect(ll)toBe('cucumbers, apples');
+  expect(ll).toBe({cucumbers}, {apples});
 })
 });
 
 // Can properly return a collection of all the values that exist in the linked list
 test('should return a string when function is called', () => {
-  ll.toString('apples').toBe('apples');
-  ll.toString('bananas').toBe('bananas');
-  ll.toString('cucumbers').toBe('cucumbers');
+  expect(ll.toString){apples}.toBe('apples');
+  expect(ll.toString){bananas}.toBe('bananas');
+  expect(ll.toString){cucumbers}.toBe('cucumbers');
 });
 
 test('should return a string when function is called', () => {
-  ll.toString('apples').toBe('apples');
-  ll.toString('bananas').toBe('bananas');
-  ll.toString('cucumbers').toBe('cucumbers');
+  expect(ll.toString){apples}.toBe('apples');
+  expect(ll.toString){bananas}.toBe('bananas');
+  expect(ll.toString){cucumbers}.toBe('cucumbers');
 });
 
 // Will return true when finding a value within the linked list that exists
 test('Will return true when finding a value within the linked list that exists', () => {
   ll.appends('apples');
-  ll.includes('apples').toBe(true);
+  expect(ll.includes){apples}.toBe(true);
 });
 
 // Will return false when searching for a value in the linked list
 test('Will return false when searching for a value in the linked list', () => {
   ll.appends('bananas');
-  ll.includes('apples').toBe(false);
+  expect(ll.includes){apples}.toBe(false);
 });
 
 
