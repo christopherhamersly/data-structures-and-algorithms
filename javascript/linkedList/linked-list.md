@@ -27,8 +27,10 @@ Find value of K - Our approach was to first use a counter to go through the link
 
 ![Linked-List2](linked-list2.png)
 
+![Linked-List-Zip](linked-list-zip.png)
+
 ## Co-Author(s): 
  - Matthew Herriges
  - Jen Chinzi
 
- Big O in the last solution k from the end is )
+
