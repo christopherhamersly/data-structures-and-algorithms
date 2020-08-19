@@ -1,8 +1,10 @@
 'use strict;'
 
 const LinkedList = require('../linked-list.js');
-const { TestScheduler } = require('jest');
+const { test } = require('jest');
 const ll = new LinkedList();
+const zipLists = require('../linked-list.js')
+
 
 
 // Can successfully instantiate an empty linked list
@@ -41,13 +43,13 @@ test('should append to NOT empty list', () => {
   expect(ll.head.next.next.next).toBe(null);
 
 
-//  - Can successfully add multiple nodes to the end of a linked list
-test('should append multiple values to the end of a linked list', () => {
-  ll.clear();
-  ll.append('cucumbers');
-  ll.append('apples');
-  expect(ll).toBe({cucumbers}, {apples});
-})
+  //  - Can successfully add multiple nodes to the end of a linked list
+  test('should append multiple values to the end of a linked list', () => {
+    ll.clear();
+    ll.append('cucumbers');
+    ll.append('apples');
+    expect(ll).toBe('cucumbers', 'apples');
+  })
 });
 
 // Can properly return a collection of all the values that exist in the linked list
@@ -74,9 +76,9 @@ test('Will return false when searching for a value in the linked list', () => {
 
 //  - Can successfully insert a node before the first node of a linked list
 test('Inserts a node before the first node of a linked list', () => {
-ll.append('bananas');
-ll.insertBefore('apples');
-expect(ll).toBe('apples, bananas');
+  ll.append('bananas');
+  ll.insertBefore('apples');
+  expect(ll).toBe('apples, bananas');
 
 })
 
@@ -104,47 +106,93 @@ test('Can successfully insert a node before a node located in the middle of a li
 
 
 test('Where k is greater than the length of the linked list.', () => {
-let k = 10;
-ll.insert(5);
-ll.insert(4);
-ll.insert(3);
-ll.insert(2);
-ll.insert(1);
-expect(ll.kthFromEnd).toThrow('Error');
+  let k = 10;
+  ll.insert(5);
+  ll.insert(4);
+  ll.insert(3);
+  ll.insert(2);
+  ll.insert(1);
+  kthFromEnd(k);
+  expect(ll.kthFromEnd).toThrow('Error');
 })
 
 
 test('Where k is not a positive integer.', () => {
-let k = -5;
-ll.insert(4);
-ll.insert(3);
-ll.insert(2);
-ll.insert(1);
-expect(ll.kthFromEnd).toThrow('Error');
+  let k = -5;
+  ll.insert(4);
+  ll.insert(3);
+  ll.insert(2);
+  ll.insert(1);
+  expect(ll.kthFromEnd).toThrow('Error');
 })
 
 
 test('Where the linked list is of a size 1.', () => {
-ll.insert(1);
-expect(ll.kthFromEnd.value).toEqual(1);
+  ll.insert(1);
+  expect(ll.kthFromEnd.value).toEqual(1);
 })
 
 test(' Where k and the length of the list are the same.', () => {
-let k = 4;
-ll.insert(4);
-ll.insert(3);
-ll.insert(2);
-ll.insert(1);
-expect(ll.kthFromEnd.value).toEqual(4);
+  kthFromEnd(4);
+  ll.insert(4);
+  ll.insert(3);
+  ll.insert(2);
+  ll.insert(1);
+  expect(ll.kthFromEnd.value).toEqual(4);
 })
 
 test('“Happy Path” where k is not at the end, but somewhere in the middle of the linked list.', () => {
-let k = 2;
-ll.insert(4);
-ll.insert(3);
-ll.insert(2);
-ll.insert(1);
-expect(ll.kthFromEnd.value).toEqual(2);
+  let k = 2;
+  ll.insert(4);
+  ll.insert(3);
+  ll.insert(2);
+  ll.insert(1);
+  expect(ll.kthFromEnd.value).toEqual(2);
+})
+
+test('Where the lists combined eachother of equal length', () => {
+  let ll1 = new LinkedList;
+  let ll2 = new LinkedList;
+  ll1.insert(4);
+  ll1.insert(3);
+  ll1.insert(2);
+  ll1.insert(1);
+  ll2.insert(4);
+  ll2.insert(3);
+  ll2.insert(2);
+  ll2.insert(1);
+  expect(ziplists(ll1, ll2)).toEqual(4, 4, 3, 3, 2, 2, 1, 1);
+})
+  
+test('where list one is shorter than list two', () => {
+  test('Where the lists combined eachother of equal length', () => {
+    let ll1 = new LinkedList;
+    let ll2 = new LinkedList;
+    ll1.insert(3);
+    ll1.insert(2);
+    ll1.insert(1);
+    ll2.insert(4);
+    ll2.insert(3);
+    ll2.insert(2);
+    ll2.insert(1);
+    expect(zipLists(ll1, ll2)).toEqual(3, 4, 2, 3, 1, 2, 1);
+  })
+})
+  
+test('where list one is shorter than list two', () => {
+  test('Where the lists combined eachother of equal length', () => {
+    let ll1 = new LinkedList;
+    let ll2 = new LinkedList;
+    ll1.insert(4);
+    ll1.insert(3);
+    ll1.insert(2);
+    ll1.insert(1);
+    ll2.insert(3);
+    ll2.insert(3);
+    ll2.insert(2);
+    ll2.insert(1);
+    expect(zipLists(ll1, ll2)).toEqual(4, 3, 3, 2, 2, 1, 1);
+  })
 })
 
 
