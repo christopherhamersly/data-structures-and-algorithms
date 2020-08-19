@@ -33,21 +33,10 @@ class LinkedList {
     currentNode.next = newNode;
   }
 
-  //takes any value as an argument and returns a boolean result depending on whether the value exists as a Node's value somewhere within the list.
-
   includes(value){
     let currentNode = this.head;
-  
-
-    //while current does not equal null go into the loop
-    // check if the value ==== currentNode.value if not there 
-    // keep going
-    // if we reached the end of the list return false
     while(currentNode.next) {
       currentNode = currentNode.next;
-
-      //run an if conditional, if the value is not in the node, move on.  If it is return true, if it is not in the node return false
-      // move through the next node to check if its in the value
     } if (currentNode.next === value) {
       return true;
     } else {
@@ -55,43 +44,47 @@ class LinkedList {
     }
   }
 
-  //loop over the nodes and check to see if it has the value
-
-
   toString(){
 
     let currentNode = this.head;
     let string = '';
 
-    //loop over the nodes and get a value back from them returning as a string. 
     while (currentNode) {
-      string += currentNode.value;
+      string += `{ ${currentNode.value} } ->`;
       currentNode = currentNode.next;
     }
-    return string;
-  //returns a string representing all the values in the Linked List, formatted as:
-  //"{ a } -> { b } -> { c } -> NULL"
+    return string + 'NULL';
+  
   }
 
-  insertBefore(value){
-
-   const newNode = new Node(newVal)
+  insertBefore(targetValue, newValue){
 
    if(!this.head) {
-    this.head = newNode;
     return;
+   }
 
-   let currentNode = this.head;
+  if(this.head.value === targetValue) {
+   this.insert(newValue);
+   return;
+  }
+  let current = this.head;
+  }
 
-   while (currentNode.value !== value) {
-    currentNode = currentNode.next;
-}
+  while(current){
+    if(current.next.value === targetValue) {
+      current.next = new Node(newvalue, current.next);
+      // break;
+    }
+    current = current.next;
+  }
+   
 
+  insertAfter(value, arg){
 
-  insertBefore(value){
   const newNode = new Node(newVal)
+
   if(!this.head) {
-  this.head = newNode;
+  
   return;
   
   let currentNode = this.head;
@@ -103,9 +96,37 @@ class LinkedList {
   let temp = currentNode;
   currentNode.next = newNode;
   newNode.next = temp.next;
-}
+  }
+  };
 
+  kthFromEnd(k){
+  if(!this.head){
+    return 'Exception: list contains no nodes';
+  }
 
+  let listLength = 0;
+  let currentNode = this.head;
+
+  while(currentNode.next){
+    listLength++;
+    currentNode = currentNode.next;
+  }
+
+  let targetNode = (listLength - k);
+
+  if(targetValue<0) {
+    return 'Exception'
+  } else {
+    currentNode = this.head;
+    letkCounter = 0;
+    while(kCounter < targetNode) {
+      kCounter++;
+      currentNode = currentNode.mext;
+    } 
+  }
+
+  return currentNode.value;
+  }
 }
 
 

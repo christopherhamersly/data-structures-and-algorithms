@@ -15,11 +15,20 @@ For Include, I first needed to establish a while loop letting the alogirithim ru
 
 For toString I thought it would also be easy to use a while loop.  Going through the node and storing the values of the linked list in a variable called string.  As its moving through the link list it is taking the values from each node and pushing them into an empty string, and then returning the string at the end of the while loop. 
 
+For includes before and after, we needed to determine our target for the linked list.  Once we find the target for our linked list, we then insert the argument either before or after the target value. 
+
+Find value of K - Our approach was to first use a counter to go through the linked list.  We would return a value from the counter and subtract that from the argument we are given as our k.  If our counter number and k equalled less than zero, we would then return an exception.  If not, we would loop over the list the amount of times we calculated earlier and return the value from the node when the counter equalled zero. 
+
 ## API
 
 
 ## Solution
 ![Linked-list](linked-list.png)
 
-## Co-Author 
+![Linked-List2](linked-list2.png)
+
+## Co-Author(s): 
  - Matthew Herriges
+ - Jen Chinzi
+
+ Big O in the last solution k from the end is )

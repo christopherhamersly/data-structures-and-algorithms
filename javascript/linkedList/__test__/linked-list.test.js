@@ -2,7 +2,8 @@
 
 const LinkedList = require('../linked-list.js');
 const { TestScheduler } = require('jest');
- const ll = new LinkedList();
+const ll = new LinkedList();
+
 
 // Can successfully instantiate an empty linked list
 test('should instantiate', () => {
@@ -41,7 +42,7 @@ test('should append to NOT empty list', () => {
 
 
 //  - Can successfully add multiple nodes to the end of a linked list
-test('should append multiple values to the end of a linked list' => {
+test('should append multiple values to the end of a linked list', () => {
   ll.clear();
   ll.append('cucumbers');
   ll.append('apples');
@@ -51,33 +52,29 @@ test('should append multiple values to the end of a linked list' => {
 
 // Can properly return a collection of all the values that exist in the linked list
 test('should return a string when function is called', () => {
-  expect(ll.toString){apples}.toBe('apples');
-  expect(ll.toString){bananas}.toBe('bananas');
-  expect(ll.toString){cucumbers}.toBe('cucumbers');
+  ll.append('cucumbers');
+  ll.append('apples');
+  ll.append('bananas');
+  expect(ll.toString).toBe('{bananas} -> {apples} -> {cucumbers} -> null');
 });
 
-test('should return a string when function is called', () => {
-  expect(ll.toString){apples}.toBe('apples');
-  expect(ll.toString){bananas}.toBe('bananas');
-  expect(ll.toString){cucumbers}.toBe('cucumbers');
-});
 
 // Will return true when finding a value within the linked list that exists
 test('Will return true when finding a value within the linked list that exists', () => {
-  ll.appends('apples');
-  expect(ll.includes){apples}.toBe(true);
+  ll.insert('apples');
+  expect(ll.includes)('apples').toBe(true);
 });
 
 // Will return false when searching for a value in the linked list
 test('Will return false when searching for a value in the linked list', () => {
-  ll.appends('bananas');
-  expect(ll.includes){apples}.toBe(false);
+  ll.insert('bananas');
+  expect(ll.includes)('apples').toBe(false);
 });
 
 
 //  - Can successfully insert a node before the first node of a linked list
 test('Inserts a node before the first node of a linked list', () => {
-ll.appends('bananas');
+ll.append('bananas');
 ll.insertBefore('apples');
 expect(ll).toBe('apples, bananas');
 
@@ -86,27 +83,70 @@ expect(ll).toBe('apples, bananas');
 // - Can successfully insert a node before a node located i the middle of a linked list
 
 test('Can successfully insert a node before a node located in the middle of a linked list', () => {
-  ll.appends('bananas');
-  ll.appends('carrots');
-  ll.appends('doughnuts');
-  ll.appends('eggplant');
-  ll.insertBefore('apples','carrots').toBe('bananas, apples, carrots, doughnuts, eggplant');
+  ll.insert('bananas');
+  ll.insert('carrots');
+  ll.insert('doughnuts');
+  ll.insert('eggplant');
+  ll.insertBefore('eggplant', 'fruit');
+  expect(ll).toBe('bananas, apples, carrots, doughnuts, fruit, npeggplant');
 })
 
 // - Can successfully insert after a node in the middle of the linked list
 
 test('Can successfully insert a node before a node located in the middle of a linked list', () => {
-  ll.appends('bananas');
-  ll.appends('carrots');
-  ll.appends('doughnuts');
-  ll.appends('eggplant');
-  ll.insertAfter('apples','carrots').toBe('bananas, carrots, apples, doughnuts, eggplant');
+  ll.insert('bananas');
+  ll.insert('carrots');
+  ll.insert('doughnuts');
+  ll.insert('eggplant');
+  ll.insertAfter('apples','carrots')
+  expect(ll).toBe('bananas, carrots, apples, doughnuts, eggplant');
 })
-/*
-
- -- TESTS for code challenge 06 --
-  
-  - Can successfully insert a node after the last node of the linked list
 
 
-/*
+test('Where k is greater than the length of the linked list.', () => {
+let k = 10;
+ll.insert(5);
+ll.insert(4);
+ll.insert(3);
+ll.insert(2);
+ll.insert(1);
+expect(ll.kthFromEnd).toThrow('Error');
+})
+
+
+test('Where k is not a positive integer.', () => {
+let k = -5;
+ll.insert(4);
+ll.insert(3);
+ll.insert(2);
+ll.insert(1);
+expect(ll.kthFromEnd).toThrow('Error');
+})
+
+
+test('Where the linked list is of a size 1.', () => {
+ll.insert(1);
+expect(ll.kthFromEnd.value).toEqual(1);
+})
+
+test(' Where k and the length of the list are the same.', () => {
+let k = 4;
+ll.insert(4);
+ll.insert(3);
+ll.insert(2);
+ll.insert(1);
+expect(ll.kthFromEnd.value).toEqual(4);
+})
+
+test('“Happy Path” where k is not at the end, but somewhere in the middle of the linked list.', () => {
+let k = 2;
+ll.insert(4);
+ll.insert(3);
+ll.insert(2);
+ll.insert(1);
+expect(ll.kthFromEnd.value).toEqual(2);
+})
+
+
+
+
