@@ -79,10 +79,10 @@ class LinkedList {
     const newNode = new Node(newVal)
 
     if(!this.head) {
-  
+
       return;
     }
-  
+
     let currentNode = this.head;
     while(currentNode.next.value !== value) {
       currentNode = currentNode.next;
@@ -126,71 +126,50 @@ class LinkedList {
   }
 }
 
-class Stack extends LinkedList{
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+
+class Stack {
 
   constructor() {
-    super().storage = {};
-  }
-
-  peek() {
-    if(!this.head){
-      throw new RangeError('Cannot peek empty stack');
-    }
-    else {
-      this.head = new Node(this.head);
-    }
-  }
-
-  push() {
-    if(!this.head) {
-      return ('Cannot push onto an empty stack');
-    } else {
-      const newNode = new Node();
-      if(!this.head){
-        this.head = newNode;
-        return;
-      }
-
-      let currentNode = this.head;
-
-      while(currentNode.next) {
-        currentNode = currentNode.next;
-      }
-
-      currentNode.next = newNode;
-    }
-    // ll.insert(value);
-  }
-
-  pop() {
-    if(!this.head){
-      throw new RangeError('Cannot pop off empty stack');
-    }
-    else {
-      const newNode = new Node();
-      if(!this.head){
-        this.head = newNode;
-        return;
-      }
-
-      let currentNode = this.head;
-
-      while(currentNode.next) {
-        currentNode = currentNode.next;
-      }
-
-      currentNode.next = newNode
-    }
-    // return this.storage.pop();
+    this.size = 0;
+    this.top = null;
   }
 
   isEmpty() {
-    if(!this.head) {
-      return false;
-    } else {
-      return true;
-    }
+    return this.front === 0;
   }
+
+
+  peek() {
+    if (this.top === null) {
+      throw new RangeError('Cannot peek off empty Stack');
+    }
+    return this.top.value;
+  }
+
+
+  push(value) {
+    const oldTop = this.top;
+    this.top = new Node(value);
+    this.top.next = oldTop;
+  }
+
+  pop() {
+    if (this.top === null) {
+      throw new RangeError('Cannot pop off empty stack');
+    }
+    let current = this.top;
+    this.top = this.top.next;
+    current.next = null;
+    return current.value;
+  }
+
 }
 
 class Queue {
@@ -198,8 +177,6 @@ class Queue {
     this.storage = [];
   }
   dequeue() {
-    // Define a method called dequeue that does not take any argument, removes the node from the front of the queue, and returns the node’s value.
-    // Should raise exception when called on empty queue
     if (this.storage.length === 0) {
       throw new RangeError('Cannot dequeue empty queue');
     } else {
@@ -224,7 +201,7 @@ class Queue {
     // which takes any value as an argument and adds a new node with that value to the back of the queue with an O(1) Time performance.
   }
   isEmpty() {
-    if (this.storage.length === 0){
+    if (this.size === 0){
       return true;
     } else {
       return false;
