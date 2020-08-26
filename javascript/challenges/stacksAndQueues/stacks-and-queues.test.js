@@ -1,3 +1,5 @@
+'use strict';
+
 const Stack = require('./stacks-and-queues.js');
 const Queue = require('./stacks-and-queues.js');
 
