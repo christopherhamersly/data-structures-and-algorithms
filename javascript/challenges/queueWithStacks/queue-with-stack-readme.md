@@ -16,7 +16,9 @@ Efficiency is O(n);
 
 
 ## Solution
-![Code Challenge Two](codechallenge-three.png)
+![Code Challenge Two](queue.png)
 
-## Co-Author 
- - Matthew Herriges
+
+## Co-Author(s)
+ - Tia Low
+ - Lulu Sevignon

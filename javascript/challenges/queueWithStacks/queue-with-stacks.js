@@ -1,6 +1,57 @@
 'use strict';
-const stack = require('../stacksAndQueues/stacks-and-queues.js');
 
+'use strict';
+
+const Stack = require('../../data-structures/stacksAndQueues/stacks-and-queues.js');
+
+class Node {
+  constructor(value){
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class PseudoQueue {
+
+  constructor(){
+    this.top = null;
+  }
+
+  enqueue(value){
+    const oldTop = this.top;
+    this.top = new Node(value);
+    this.top.next = oldTop;
+  }
+
+  dequeue(){
+    let stackOne = {};
+    let stackTwo = {};
+    while (this.next !== null){
+      let current = this.top;
+      this.top = this.top.next;
+      current.next = null;
+
+      const oldTop = this.top;
+      this.top = current.value
+      this.top.next = oldTop;
+
+      return top.value;
+    }
+  }
+
+  peek(){
+    return this.top.value;
+  }
+}
+
+const Stack = require('../stacksAndQueues/stacks-and-queues.js');
+ 
+Class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
 
 class PsuedoQueue {
 
@@ -15,14 +66,14 @@ class PsuedoQueue {
 
 
   dequeue() {
-    let queue = {};
+    this.storage = {};
     let holdingList = {};
     let argList = {};
     // let secondHoldingList = {};
 
     while (this.head.value === true) {
-      queue.pop.linkedList();
-      queue.push.linkedList(holdingList);
+      stack.pop.linkedList();
+      stack.push.linkedList(holdingList);
       return holdingList();
     }
     holdingList.pop(argList);

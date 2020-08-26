@@ -2,7 +2,7 @@
 
 const PsuedoQueue = require('./queue-with-stacks.js');
 const Queue = require('../stacksAndQueues/stacks-and-queues.js');
-
+const Stack = require('../stacksAndQueues/stacks-and-queues.js');
 
 // “Happy Path” - Expected outcome
 // Expected failure
@@ -13,9 +13,9 @@ describe(`queue with stacks`, () => {
     let newQueue = new PsuedoQueue;
     let realNewQueue = new Queue;
 
-    realNewQueue.enqeue('bananas');
-    realNewQueue.enqeue('oranges');
-    realNewQueue.pus('carrots');
+    realNewQueue.push('bananas');
+    realNewQueue.push('oranges');
+    realNewQueue.push('carrots');
 
 
   })
@@ -24,10 +24,11 @@ describe(`queue with stacks`, () => {
     let newQueue = new PsuedoQueue;
     let realNewQueue = new Queue;
 
-    realNewQueue.enqeue('bananas');
-    realNewQueue.enqeue('oranges');
-    realNewQueue.enqeue('carrots');
-    newQueue.enqeue('apples');
+
+    realNewQueue.push('bananas');
+    realNewQueue.push('oranges');
+    realNewQueue.push('carrots');
+    newQueue.push('apples');
     expect(newQueue).toBe('bananas, oranges, carrots, apples');
 
   });
