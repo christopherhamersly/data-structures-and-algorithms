@@ -9,16 +9,9 @@ describe ('We are testing Animal shelter against a bunch (hopefully) of function
 
   it('should be able to enqueue either cats or dogs', () => {
     let cat = new Cat;
-    let weEnqueue = new AnimalShelter;
     let dog = new Dog;
-    let holdingList = b [];
-
-    weEnqueue.enqueue((cat), holdingList);
-    weEnqueue.enqueue((dog), holdingList);
-
-    console.log( 'what is in the holding list?', holdingList)
-
-    expect(holdingList).toEqual(dog, cat);
+    let holdingList =  [cat, cat];
+    expect(enqueue(cat, dog)(holdingList))).toBe(dog, cat);
 
   })
 
@@ -53,7 +46,58 @@ describe ('We are testing Animal shelter against a bunch (hopefully) of function
   })
 
 
-
+  class Animal {
+    constructor(name){
+      this.name = name;
+    }
+  }
+  
+  class Dog extends Animal {
+    constructor(name){
+      super(name);
+      this.type = 'dog';
+    }
+  }
+  
+  class Cat extends Animal {
+    constructor(name){
+      super(name);
+      this.type = 'cat';
+    }
+  }
+  
+  class AnimalShelter {
+    constructor(){
+      this.storage = [];
+    }
+    enqueue(animal){
+      this.storage.push(animal);
+  
+    }
+  
+    dequeue(pref){
+      if(!pref){
+        let toReturn = this.storage[0];
+        this.storage.shift();
+        return toReturn;
+      }else if(pref !== 'dog' && pref !== 'cat' || this.storage.length === 0){
+        return null;
+      }else{
+        for(let i=0; i< this.storage.length; i++){
+          if(pref === this.storage[i].type){
+            let toReturn2 = this.storage[i];
+  
+            this.storage.splice(i,1);
+            return toReturn2;
+          }
+        }
+        return `There is no ${pref} in our shelter`;
+      }
+    }
+  
+  
+  }
+  
 
 
 

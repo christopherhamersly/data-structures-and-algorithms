@@ -44,46 +44,46 @@ class PseudoQueue {
   }
 }
 
-const Stack = require('../stacksAndQueues/stacks-and-queues.js');
+// const Stack = require('../stacksAndQueues/stacks-and-queues.js');
  
-Class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
-}
+// class Node {
+//   constructor(value) {
+//     this.value = value;
+//     this.next = null;
+//   }
+// }
 
-class PsuedoQueue {
-
-
-
-  enqueue(value) {
-    let queue = {};
-    queue.push(value);
-    return queue;
-
-  }
+// class PsuedoQueue {
 
 
-  dequeue() {
-    this.storage = {};
-    let holdingList = {};
-    let argList = {};
-    // let secondHoldingList = {};
 
-    while (this.head.value === true) {
-      stack.pop.linkedList();
-      stack.push.linkedList(holdingList);
-      return holdingList();
-    }
-    holdingList.pop(argList);
-    return holdingList
-  }
-  // while(holdingList.head.value === true);
-  //   queue.pop.holdingList();
-  //   queue.push.secondHoldingList(holdingList);
-  //   return secondHoldingList();
-}
+//   enqueue(value) {
+//     let queue = {};
+//     queue.push(value);
+//     return queue;
 
-module.exports = PsuedoQueue;
+//   }
+
+
+//   dequeue() {
+//     this.storage = {};
+//     let holdingList = {};
+//     let argList = {};
+//     // let secondHoldingList = {};
+
+//     while (this.head.value === true) {
+//       stack.pop.linkedList();
+//       stack.push.linkedList(holdingList);
+//       return holdingList();
+//     }
+//     holdingList.pop(argList);
+//     return holdingList
+//   }
+//   // while(holdingList.head.value === true);
+//   //   queue.pop.holdingList();
+//   //   queue.push.secondHoldingList(holdingList);
+//   //   return secondHoldingList();
+// }
+
+module.exports = PseudoQueue;
 

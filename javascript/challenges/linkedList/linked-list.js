@@ -131,42 +131,42 @@ class LinkedList {
   }
 }
 
-function zipLists(list1, list2) {
-  let combinedList = new LinkedList;
+// function zipLists(list1, list2) {
+//   let combinedList = new LinkedList;
 
-  let ll1Current = list1.head;
-  let ll2Current = list2.head;
+//   let ll1Current = list1.head;
+//   let ll2Current = list2.head;
 
-  while (ll1Current || ll2Current){
-    if(ll1Current){
-      combinedList.append(ll1Current.value);
-      ll1Current = ll1Current.next;
-    }
-  } if (ll2Current) {
-    combinedList.append(ll1Current.value);
-    ll2Current = ll2Current.next;
-  }
-  return combinedList.head;
-}
+//   while (ll1Current || ll2Current){
+//     if(ll1Current){
+//       combinedList.append(ll1Current.value);
+//       ll1Current = ll1Current.next;
+//     }
+//   } if (ll2Current) {
+//     combinedList.append(ll1Current.value);
+//     ll2Current = ll2Current.next;
+//   }
+//   return combinedList.head;
+// }
 
-zipLists();
+// zipLists();
 
-let currentNode1 = list1.head;
-let currentNode2 = list2.head;
+// let currentNode1 = list1.head;
+// let currentNode2 = list2.head;
 
-while(currentNode1.next && currentNode2.next) {
-  let formerNext1 = currentNode1.next;
-  currentNode1.next = currentNode2;
+// while(currentNode1.next && currentNode2.next) {
+//   let formerNext1 = currentNode1.next;
+//   currentNode1.next = currentNode2;
 
-  let formerNext2 = currentNode2.next;
-  currentNode2.next = formerNext1;
+//   let formerNext2 = currentNode2.next;
+//   currentNode2.next = formerNext1;
 
-  currentNode1 = formerNext1;
-  currentNode2 = formerNext2;
-}
+//   currentNode1 = formerNext1;
+//   currentNode2 = formerNext2;
+// }
 
 module.exports = LinkedList;
 
-module.exports = zipLists;
+// module.exports = zipLists;
 
 

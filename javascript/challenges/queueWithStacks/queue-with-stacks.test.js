@@ -2,7 +2,7 @@
 
 const PsuedoQueue = require('./queue-with-stacks.js');
 const Queue = require('../stacksAndQueues/stacks-and-queues.js');
-const Stack = require('../stacksAndQueues/stacks-and-queues.js');
+// const Stack = require('../stacksAndQueues/stacks-and-queues.js');
 
 // “Happy Path” - Expected outcome
 // Expected failure
