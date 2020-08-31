@@ -43,43 +43,43 @@ describe ('We are testing multiBracket Validation in a few different ways', () =
 
     let string = '{}'
 
-    expect(multiBracketValidation(string.toStrictEqual(true)));
-  })
+    expect(multiBracketValidation(string)).toBe(true);
+  });
 
   it('should return false given this following argument', () => {
 
-    let string = '{]'
+    let string = '{]';
 
-    expect(multiBracketValidation(string.toStrictEqual(false)));
-  })
+    expect(multiBracketValidation(string)).toBe(false);
+  });
 
   it('should return false given this following argument', () => {
 
-    let string = '{{]}'
+    let string = '{{]}';
 
-    expect(multiBracketValidation(string.toStrictEqual(false)));
-  })
+    expect(multiBracketValidation(string)).toBe(false);
+  });
 
   it('should return true given this following argument', () => {
 
     let string = '{[]}'
 
-    expect(multiBracketValidation(string.toStrictEqual(false));
-  })
+    expect(multiBracketValidation(string)).toBe(true);
+  });
 
   it('should return true given this following argument', () => {
 
     let string = '{[hello from the test]}'
 
-    expect((multiBracketValidation(string).toStrictEqual(false));
-  })
+    expect(multiBracketValidation(string)).toBe(true);
+  });
 
   it('should return false given this following argument', () => {
 
     let string = '{[hello from the test}'
 
-    expect(multiBracketValidation(string).toStrictEqual(true));
-  })
+    expect(multiBracketValidation(string)).toBe(false);
+  });
 
 
 
