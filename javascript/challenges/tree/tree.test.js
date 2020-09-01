@@ -1,6 +1,6 @@
 'use strict';
 
-const {BinarySearchTree, Node} = require ('./tree.js');
+const {BinarySearchTree, Node, BinaryTree} = require ('./tree.js');
 
 
 
@@ -52,7 +52,7 @@ it('can successully search through a binary tree and see if a value is included'
   const bananas = new Node ('bananas');
   const cherries = new Node('cherries', bananas, apple);
   const tree = new BinarySearchTree(cherries);
-  expect(tree.includes('apple')).toBe(true);
+  expect(tree.contains('apple')).toEqual(true);
 })
 
 it('can successully search through a binary tree and see if a value is included', () => {
@@ -60,8 +60,27 @@ it('can successully search through a binary tree and see if a value is included'
   const bananas = new Node ('bananas');
   const cherries = new Node('cherries', bananas, apple);
   const tree = new BinarySearchTree(cherries);
-  expect(tree.includes('donuts')).toBe(false);
+  expect(tree.contains('donuts')).toBe(false);
 })
+
+it('should add to root of empty tree', () => {
+  const tree = new BinarySearchTree();
+
+  tree.add(5);
+
+  expect (tree.root.value).toBe(5);
+})
+
+it('should find the maximum value in a tree', () => {
+  const apple = new Node(1);
+  const bananas = new Node (5);
+  const cherries = new Node(3, bananas, apple);
+  const tree = new BinaryTree(cherries);
+  expect(tree.findMaximum()).toEqual(5);
+
+})
+
+
 
 
 
