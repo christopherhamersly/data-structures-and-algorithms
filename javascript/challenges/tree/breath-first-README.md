@@ -6,13 +6,12 @@ Write a breadth first traversal method which takes a Binary Tree as its unique i
 
 
 ## Approach & Efficiency
-
+We decided to traverse the tree by taking in the first value and adding it to a queue.  Then we queued up the left and right values onto the queue and moved down.  Once we moved we deque the front of the queue and move on to the tree, repeating until we reach a null value for the left and right value and return the values into an array. 
 
 Efficiency is O(n);
 
-
 ## Solution
-![find-maximum-tree](tree-whiteboard.png)
+![breadth-first](breadth-first.png)
 
 
 ## Co-Author(s)
