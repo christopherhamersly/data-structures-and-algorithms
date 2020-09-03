@@ -1,5 +1,42 @@
+'use strict';
 
+class Queue {
+  constructor() {
+    this.storage = [];
+  }
+  dequeue() {
+    // if (this.storage.length === 0) {
+    //   throw new RangeError('Cannot dequeue empty queue');
+    // } else {
+    // let returnValue = this.storage.length
+    // this.storage.unshift(returnValue);
+    return this.storage.shift();
+    // }
+  }
 
+  peek() {
+    if (this.storage.length === 0) {
+      throw new RangeError('Cannot peek empty queue');
+    } else {
+      let peek = this.storage[0];
+      return peek
+    }
+    // Define a method called peek that does not take an argument and returns the value of the node located in the front of the queue, without removing it from the queue.
+
+  }
+  enqueue(value) {
+    this.storage.push(value);
+    // which takes any value as an argument and adds a new node with that value to the back of the queue with an O(1) Time performance.
+  }
+  isEmpty() {
+    if (this.size === 0){
+      return true;
+    } else {
+      return false;
+    }
+    // that takes no argument, and returns a boolean indicating whether or not the queue is empty.
+  }
+}
 
 class Node {
   constructor(value, left=null, right=null) {
@@ -15,7 +52,23 @@ class BinaryTree {
     this.root = root;
   }
 
+  breadthFirst() {
 
+    const output = [];
+    let breadth = new Queue;
+    // const node = new Node;
+
+    while (!breadth.isEmpty()) {
+      let node = breadth.dequeue();
+      if(node.left) {
+        breadth.enqueue(node.left)
+      }
+      if(node.right) {
+        breadth.enqueue(node.right)
+      }
+      output.push(node.value);
+    }
+  }
 
   preOrder() {
 
@@ -149,7 +202,7 @@ class BinarySearchTree extends BinaryTree {
 }
 
 
-module.exports = {BinarySearchTree, Node, BinaryTree};
+module.exports = {BinarySearchTree, Node, BinaryTree, Queue};
 
 
 

@@ -1,6 +1,7 @@
 'use strict';
 
-const {BinarySearchTree, Node, BinaryTree} = require ('./tree.js');
+const {BinarySearchTree, Node, BinaryTree, Queue} = require ('./tree.js');
+
 
 
 
@@ -80,9 +81,14 @@ it('should find the maximum value in a tree', () => {
 
 })
 
+it.only('should correctly read top to bottom of the tree', () => {
+  const one = new Node('apples', 'flour', 'grapes');
+  const two = new Node('bananas', 'dates', 'eggplant');
+  const three = new Node('cherries', two, one);
+  const tree = new BinaryTree(three);
+  console.log(tree, 'tree');
+  expect(tree.breadthFirst()).toBe('cherries, bananas, apples');
+ 
 
-
-
-
-
+});
 
