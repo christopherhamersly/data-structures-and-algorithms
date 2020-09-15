@@ -60,13 +60,13 @@ class BinaryTree {
 
     while (!breadth.isEmpty()) {
       let node = breadth.dequeue();
-      if(node.left) {
+      if(node.value.left) {
         breadth.enqueue(node.left)
       }
-      if(node.right) {
+      if(node.right.value) {
         breadth.enqueue(node.right)
       }
-      output.push(node.value);
+      output.push(node.value.value);
     }
   }
 
