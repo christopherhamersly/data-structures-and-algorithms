@@ -1,13 +1,19 @@
 'use strict';
 
 function quickSort(arr, left, right) {
+  let pivotValue;
 
-  if (left < right) {
-    right = partitionArray(arr, left, right)
-    console.log('in quicksort');
+  if(arr.length > 1) {
+    pivotValue = partitionArray(arr, left, pivotValue);
+
+    if(left < pivotValue -1) {
+      quickSort(arr, pivotValue, right);
+    }
+
+    if(pivotValue < right) {
+      quickSort(arr, pivotValue, right);
+    }
   }
-  quickSort(arr, left, right - 1)
-  quickSort(arr, left + 1, right)
 }
 
 function partitionArray(arr, left, right) {
