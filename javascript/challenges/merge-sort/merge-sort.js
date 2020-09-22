@@ -2,15 +2,13 @@
 
 function mergeSort(arr) {
 
-  let arrayLength = arr.length;
-
-  if(arrayLength <= 1) {
+  if(arr.length <= 1) {
     return arr;
   }
 
-  let mid = Math.floor(arrayLength/2);
+  let mid = Math.floor(arr.length/2);
   let left = arr.slice(0,mid);
-  let right = arr.slice(mid,arrayLength);
+  let right = arr.slice(mid,length);
 
   console.log('left', left);
   console.log('right', right);
@@ -28,7 +26,7 @@ function mergeSort(arr) {
 
 
 
-function merge(left, right, arr) {
+function merge(left, right ) {
   let i = 0;
   let j = 0;
   let k = [];
