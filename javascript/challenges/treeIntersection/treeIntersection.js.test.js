@@ -53,9 +53,9 @@ describe('we are testing tree intersections ', () => {
 
   test('it should return values if they match' , () => {
 
-    let right = new Node(100, 1200, 60 );
-    let left = new Node(15 , 60, 80);
-    let root = new Node(30, left, right);
+    let right = new Node('100', '1200', '60' );
+    let left = new Node('15' , '60', '80');
+    let root = new Node('30', left, right);
     let firstTree = new BinaryTree(root);
 
 
