@@ -1,29 +1,21 @@
 'use strict';
 
-function leftJoin(table1, table2) {
 
-  let resultsArray = [];
-  let resultsArrayTwo = [];
+function leftJoin(synonyms, antonyms){
+  const output = []
 
-  table1.forEach(bucket => {
+  for(let key in synonyms) {
+    const entry = [key, synonyms[key], 'NULL'];
 
-    resultsArray.push([bucket[0], bucket[1]]);
-
-    table2.forEach(bucket => {
-      resultsArrayTwo.push([bucket[0], bucket[1]])
-    })
-
-    for (let i = 0; i < resultsArray.length; i++) {
-      if (resultsArrayTwo.includes(resultsArray[i])) {
-        resultsArray.push(resultsArrayTwo[1])
-      } else {
-        return null;
-      }
-
-      return resultsArray;
-
+    if(key in antonyms) {
+      entry[2] = antonyms[key]
     }
-  })
+    output.push(entry)
+  }
+  return output;
+
 }
+
+
 
 module.exports = leftJoin
