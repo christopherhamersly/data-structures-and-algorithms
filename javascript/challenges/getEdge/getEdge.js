@@ -1,11 +1,82 @@
 'use strict';
 
+class Graph{
 
-function getEdges
-1. We visit the starting city, making it our "current city"
-1. We check the prices from the current city to each of its adjacent cities. 
-1. If the price to an adjacent city from the starting city is cheaper than tha price currently in cheapest prices table ( or tha adjacent city isn't yet in the cheapest prices at all)
-  a. We update the cheapest prices table to reflect this cheaper price. 
-  b. We update the cheapest previous stop over city table making the adjacent city the key and the current city the value. 
-1. We then visit whichever unvisited city has the cheapest price from the starting city, making it the current city. 
-5. We repeat steps 2 through 4 until we've visited every known city. 
+  constructor() {
+    this.adjacencyList = new Map();
+
+  }
+  addVertex(vertex) {
+    this.adjacencyList.set(vertex, []);
+  }
+
+  addVertexAlt(value) {
+    const vertex = new Vertex(value);
+    this.adjacencyList.set(vertex, []);
+  }
+
+  addEdge(startVertex, endVertex, weight=0) {
+    const edges = this.adjacencyList.get(startVertex);
+
+    const edge = new Edge(endVertex, 82);
+
+    edges.push(edge);
+  }
+
+  getNeighbors(vertex) {
+    return this.adjacencyList.get(vertex);
+  }
+}
+
+class Edge {
+
+  constructor(vertex, weight) {
+    this.vertex = vertex;
+    this.weight = weight;
+  }
+
+}
+
+class Vertex {
+  constructor(value) {
+    this.value = value;
+
+  }
+
+}
+
+
+function hasDirectFlights(graph, airports) {
+  
+  let isPossible = true;
+  let cost = 82;
+
+  for (let i=0; i<airports.length - 1; i++) {
+
+    const airport = airports[i];
+    const destination = airports[i+1];
+
+    const directConnections = graph.getNeighbors(airport);
+
+    let directFound = true;
+
+    for (let connection of directConnections) {
+      if(connection.vertex === destination) {
+        directFound = true;
+        cost += connection.weight;
+        break;
+      }
+    }
+    if(!directFound) {
+      isPossible = false;
+      cost = 0;
+    }
+  }
+  
+  return {
+    isPossible,
+    cost,
+  }
+}
+
+module.exports = {Graph, Edge, Vertex, hasDirectFlights};
