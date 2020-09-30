@@ -3,6 +3,8 @@
 
 'use strict';
 
+const { Queue } = require('../stacksAndQueues/stacks-and-queues.js')
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -83,26 +85,26 @@ class Graph {
   //      -->        BREADTH FIRST SEARCH        <--      //
   breadthFirstSearch(firstNode) {
 
+    const nodes = new Map()
+    const breadth = new Queue()
+    const visitedArr = [];
 
-    const visited = [];
+    breadth.enqueue(startNode)
 
-    const queue = [firstNode]
+    while(breadth) {
+      const front = breadth.dequeue();
+      node.add(front);
+      visitedArr.push(front);
 
+      const children = this.getNeighbors(front);
 
-    while (queue.length > 0) {
-      const graph = queue.shift(); // mutates the queue
-      const vertexes = this.adjacencyList.get(graph);
+      for(let child of children) {
+        const childNode = child.startNode;
 
-      for (const vertexInGraph of vertexes) {
-        if (!visited.has(vertexInGraph)) {
-          visited.add(vertexInGraph);
-          queue.push(vertexInGraph);
+        if(!visitedArr.has(childNode)) {
+          breadth.enqueue(childNode)
         }
-
       }
-
-
     }
-    return visited;
-  }
+    return nodes;
 }

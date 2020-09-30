@@ -19,7 +19,7 @@ class Graph {
 
   constructor() {
     this.adjacencyList = [];
-    this.edge = [];
+    this.edges = [];
   }
 
   addNode() {
